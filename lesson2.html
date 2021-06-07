@@ -1,5 +1,36 @@
 <script>
-    var a = parseInt(Math.random()*15);
+    //Задание 1
+    var a = 1, b = 1, c, d;
+    c = ++a; alert(c);           // 2 Сначала увеличивает на 1, потом присваивает: с=2, а=2
+    d = b++; alert(d);           // 1 Сначала присваивает, потом увеличивает на 1: d=1, b=2
+    c = (2+ ++a); alert(c);      // 5 2+(a+1) Сначала увеличивает на 1, потом прибавляет к 2: с=5, a=3
+    d = (2+ b++); alert(d);      // 4 2+b Сначала прибавляет к 2, потом увеличивает b на 1: d=4, b=3
+    alert(a);                    // 3
+    alert(b);                    // 3
+    
+    //Задание 2 
+
+    a = 2;
+    var x = 1 + (a *= 2); //1+(a*2)=5
+    alert(x); 
+    
+    //Задание 3
+
+    a = parseInt(a);
+    b = parseInt(b);
+
+    if (a>=0 && b>=0) {
+        console.log (a-b);
+    } else if (a<0 && b<0) {
+        console.log (a*b);
+    } else {
+        console.log (a+b);
+    }
+
+
+    //Задание 4
+
+    a = parseInt(Math.random()*15);
 
     switch(a){
         case a=1:
@@ -35,4 +66,64 @@
         
          break;
     }
+
+    var n= parseInt(Math.random()*15);
+
+    function f(n){
+        console.log(n);
+        if(n==15){
+            return
+        }
+        f(n+1);
+    }
+
+    f(n);
+
+
+    //Задание 5 
+
+    function sum(a,b){
+        return a + b;
+    } 
+
+    function diff(a,b){
+        return a - b;
+    } 
+
+    function multi(a,b){
+        return a * b;
+    } 
+
+    function div(a,b){
+        return a / b;
+    } 
+
+    //Задание 6 
+
+    function mathOperation(arg1, arg2, operation){
+        switch(operation){
+            case '+':
+                return sum(arg1, arg2);
+                break;
+            case '-':
+                return diff(arg1, arg2);
+                break;
+            case '*':
+                return multi(arg1, arg2);
+                break;
+            case '/':
+                return div(arg1, arg2);
+                break;
+        }
+    }
+
+    console.log(mathOperation(5, 6, '+'));  
+    console.log(mathOperation(5, 6, '-'));       
+    console.log(mathOperation(5, 6, '*'));
+    console.log(mathOperation(5, 6, '/'));
+
+
+    // Задание 7
+    
+    
 </script>
