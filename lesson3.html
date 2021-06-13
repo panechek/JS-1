@@ -1,0 +1,63 @@
+<script>
+//Задание4
+    var a = [];
+
+    for (var i = 0; i<=20; i++) {
+        a.push("x");
+        var str = a.join(" ");
+        console.log(str);
+    }
+//Задание4
+//     var mas=[0,1,2,3,4,5,6,7,8,9];
+//     var j=0
+// for (j in mas){
+
+// }   
+// console.log(mas[j]);       
+
+
+//Задание1
+ i=1
+var k=0
+while(i<=100){
+   k=i-1
+   if (i==2){
+       console.log(i);
+   }
+    while(k>1 && i%k!=0){
+        // k=k-1;
+        if(k==2){
+            console.log(i);
+            break;
+        }
+        k=k-1;
+    }
+    i++;
+}
+//Задание 2,3
+var goods = [
+       {
+           title: "Товар 1",
+           price: 100,
+           count: 1
+       },
+       {
+           title: "Товар 2",
+           price: 200,
+           count: 2
+       },
+       {
+           title: "Товар 3",
+           price: 300,
+           count: 3
+       }
+   ]; 
+    
+   var countBasketPrice = 0;
+   for(var item of goods){//item - каждый элемент массива
+    countBasketPrice = countBasketPrice + item.price*item.count;//600
+   }
+   console.log(countBasketPrice);
+
+
+</script>
