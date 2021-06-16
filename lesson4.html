@@ -1,0 +1,34 @@
+<script>
+    var mas = {};
+    function f(n){
+        if(n.length > 3){
+            alert("Число больше 999");
+        } else {
+            mas.ed = n[n.length-1];
+            console.log("В " + n + " единиц " + mas.ed +"\n");
+                if(n.length > 1){
+                    mas.des = n[n.length-2];
+                    console.log("В " + n + " десятков " + mas.des +"\n");
+                }
+                if(n.length > 2){
+                    mas.sot = n[0];
+                    console.log("В " + n + " сотен " + mas.sot +"\n");
+                } 
+        }
+        
+        return mas;
+    }
+
+    mas = f("10");
+    console.log(mas);
+
+    mas = f("456");
+    console.log(mas);
+
+    mas = f("1010");
+    console.log(mas);
+
+    mas = f("2");
+    console.log(mas);
+
+</script>
