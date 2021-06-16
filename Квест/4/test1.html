@@ -1,0 +1,51 @@
+<script>
+    var car = {
+        title: "Audi",
+        price: 1000,
+        color: "white",
+        isEngineStarted: false,
+        show: function(){
+            console.log("Автомобиль " + this.title + " стоит " + this.price); 
+        }
+    
+    }
+    
+    car.show();
+    //Удаление свойств объекта
+    delete car.show;
+    console.log(car);
+    
+    car = null;
+    
+    
+    var car2 = {
+        title: "BMW",
+        price: 1100,
+        color: "black",
+        isEngineStarted: false
+    }
+    
+//    car.year = 2021;
+//    console.log(car);
+    
+    car.start = startEngine;
+    car.start();
+    car2.start = car.start;
+    car2.start();
+    function startEngine(){
+         if(!this.isEngineStarted){
+            this.isEngineStarted = true;
+            console.log("Автомобиль " + this.title + " включен");
+        }
+    }
+    
+    car.stop = function(){
+         if(this.isEngineStarted){
+            this.isEngineStarted = false;
+            console.log("Автомобиль " + this.title + " выключен");
+        }
+    }
+    car.stop();
+    car2.off = car.stop;
+    car2.off()
+</script>
