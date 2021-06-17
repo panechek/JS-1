@@ -107,7 +107,7 @@ function thirdQuestion(){
             ok = isAnswer(works.c0, event);
         }
     } while (!ok);
-    ans.third=event;
+    ans.second=event;
 }
 
 function forthQuestion(){
@@ -121,9 +121,25 @@ function forthQuestion(){
             ok = isAnswer(works.d0, event);
         }
     } while (!ok);
-    ans.forth=event;
+    ans.third=event;
 }
 
 
 
 console.log(ans);
+
+var x = +prompt("Введите номер вопроса");
+
+switch(x){
+    case 1:
+        alert("Ваш ответ " + ans.first);
+        break;
+    case 2:
+        alert("Ваш ответ " + ans.second);
+        break;
+    case 3:
+        alert("Ваш ответ " + ans.third);
+        break;
+    default:
+        alert('Ошибка ввода номера');
+}
