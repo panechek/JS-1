@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chess</title>
+</head>
+<body>
+    
+    <script>
+        var figure=["&#9820;","&#9822;","&#9821;","&#9819;","&#9818;"];
+        var voc=["","a","b","c","d","e","f","g","h",""];
+        var math=["",8,7,6,5,4,3,2,1,""]
+        var table = document.createElement("table"), tr,td;
+        table.style.border="1px solid black";
+        for (var i=1; i<=10;i++){
+            tr=document.createElement("tr");
+            table.append(tr);
+            for(var j=1;j<=10;j++){
+                td=document.createElement("td");
+                td.innerHTML="<span>" + symbol(i,j) + "</span>";
+                td.style.fontSize = "60px";
+                td.style.textAlign = "center";
+                td.style.color = "white";
+                if(i==9||i==8){td.style.color = "black";}
+                td.style.height = "100px";
+                td.style.width = "100px";
+                td.style.border="1px solid black";
+                if(i%2==0){
+                    if(j%2==0){
+                        td.style.backgroundColor="beige";
+                    }else{
+                        td.style.backgroundColor ="brown"; 
+                    }
+                }else {
+                    if(j%2!==0){
+                        td.style.backgroundColor="beige";
+                    }else{
+                        td.style.backgroundColor ="brown"; 
+
+            }
+        }
+            if(i==1||i==10||j==1||j==10){
+                td.style.backgroundColor="white";
+                td.style.border="none";
+                td.style.color="black";
+            }
+            if(i==1||i==10){
+                
+            }
+                tr.append(td);
+            }
+        }
+        function symbol(a,b){
+            if(a==1||a==10){
+                    return voc[b-1];
+                    
+                }else if (j==1||j==10){
+                    return math[a-1];
+                }else if (a==3||a==8){
+                    return 	"&#9823";
+                }else if(a==2||a==9){
+                    if(b==2){return figure[0]}
+                    else if(b==3){return figure[1]}
+                    else if(b==4){return figure[2]}
+                    else if(b==5){return figure[3]}
+                    else if(b==6){return figure[4]}
+                    else if(b==7){return figure[2]}
+                    else if(b==8){return figure[1]}
+                    else if(b==9){return figure[0]}
+                    
+                }else{return ""}
+            }
+
+
+        
+       
+        document.querySelector("body").append(table);
+    </script>
+    
+</body>
+</html>
