@@ -1,0 +1,16 @@
+body {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.shop {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.item {
+    height: 300px;
+    width: 350px;
+    background-color: brown;
+}
