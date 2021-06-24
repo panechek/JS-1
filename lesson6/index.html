@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="small/c0.jpeg" id="s0" alt="">;
+    <img src="small/c1.jpg" id="s1"  alt="">;
+    <img src="small/c2.jpg" id="s2" alt="">;
+
+    <div class="shop">
+        <div class="item item1">
+            <img src="shop/item1.jpg" alt="">
+            <p>Кроссовки 1</p>
+            <p>1000 рублей</p>
+            <button id="b1">Купить</button>
+        </div>
+        <div class="item item2">
+            <img src="shop/item2.jpg" alt="">
+            <p>Кроссовки 2</p>
+            <p>1000 рублей</p>
+            <button id="b2">Купить</button>
+        </div>
+        <div class="item item3">
+            <img src="shop/item3.jpg" alt="">
+            <p>Кроссовки 3</p>
+            <p>1000 рублей</p>
+            <button id="b3">Купить</button>
+        </div>
+    </div>
+
+    <h1>Корзина покупок</h1>
+
+    <script>
+        var images = document.querySelectorAll("img");
+        
+        for(var i=0; i<3; i++){
+            images[i].onclick=function(e){
+            var img = document.createElement("img");
+            
+            img.src = "big/b" + (e.target.id[1])+ ".JPG";
+            img.onclick = function(){
+                this.remove();
+            }
+            document.body.append(img);
+            img.onerror = function(){
+                alert("Ошибка загрузки");
+                this.remove();
+            }
+            }
+        }
+        var busket = [];
+        var buttons = document.querySelectorAll("button");
+        for(var i=0; i<3; i++){
+            buttons[i].onclick = function(ev){
+                busket.push = document.getElementsByClassName("item"+ev.target.id[1])
+                console.log(busket);
+                
+            }
+        }
+
+    </script>
+</body>
+</html>
