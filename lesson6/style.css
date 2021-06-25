@@ -3,9 +3,10 @@ body {
     margin: 0 auto;
 }
 
-.shop {
+#shop {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 
@@ -13,4 +14,10 @@ body {
     height: 300px;
     width: 350px;
     background-color: brown;
+    margin-bottom: 2%;
+}
+
+#bigPic {
+    position: absolute;
+
 }

@@ -11,28 +11,13 @@
     <img src="small/c0.jpeg" id="s0" alt="">;
     <img src="small/c1.jpg" id="s1"  alt="">;
     <img src="small/c2.jpg" id="s2" alt="">;
+    <div id="bigPic">
 
-    <div class="shop">
-        <div class="item item1">
-            <img src="shop/item1.jpg" alt="">
-            <p>Кроссовки 1</p>
-            <p>1000 рублей</p>
-            <button id="b1">Купить</button>
-        </div>
-        <div class="item item2">
-            <img src="shop/item2.jpg" alt="">
-            <p>Кроссовки 2</p>
-            <p>1000 рублей</p>
-            <button id="b2">Купить</button>
-        </div>
-        <div class="item item3">
-            <img src="shop/item3.jpg" alt="">
-            <p>Кроссовки 3</p>
-            <p>1000 рублей</p>
-            <button id="b3">Купить</button>
-        </div>
     </div>
+    <div id="shop">
 
+    </div>
+    
     <h1>Корзина покупок</h1>
 
     <script>
@@ -41,28 +26,65 @@
         for(var i=0; i<3; i++){
             images[i].onclick=function(e){
             var img = document.createElement("img");
-            
+            var appDiv=document.getElementById("bigPic");
+            appDiv.innerHTML="";
             img.src = "big/b" + (e.target.id[1])+ ".JPG";
             img.onclick = function(){
                 this.remove();
             }
-            document.body.append(img);
+            bigPic.append(img);
             img.onerror = function(){
                 alert("Ошибка загрузки");
                 this.remove();
             }
             }
         }
+
+        function Item(title,price,img){
+            this.title = title;
+            this.price = price;
+            this.count = 0;
+            this.img = img;
+        }
+
+        var item1 = new Item("Кроссовки 1",1000,"shop/item1.jpg");
+        var item2 = new Item("Кроссовки 2",2000,"shop/item2.jpg");
+        var item3 = new Item("Кроссовки 3",3000,"shop/item3.jpg");
+        var item4 = new Item("Кроссовки 4",4000,"shop/item4.jpg");
+        var item5 = new Item("Кроссовки 5",5000,"shop/item5.jpg");
+        var item6 = new Item("Кроссовки 6",6000,"shop/item6.jpg");
         var busket = [];
+        var items = [item1,item2,item3,item4,item5,item6];
+        console.log(items);
+        
+            var shop = document.getElementById ("shop");
+            var out = "";
+            for (var key in items){
+                var div = document.createElement("div");
+                div.classList.add("item","item"+key);
+                out="<p>"+items[key].title+"</p>";
+                out+="<p>"+items[key].price+" рублей</p>";
+                out+="<img src="+items[key].img+" >";
+                out+="<button>Купить</button>";
+                div.innerHTML=out;
+            
+            shop.append(div); 
+            
+        }
+            
         var buttons = document.querySelectorAll("button");
-        for(var i=0; i<3; i++){
-            buttons[i].onclick = function(ev){
-                busket.push = document.getElementsByClassName("item"+ev.target.id[1])
-                console.log(busket);
+        console.log(buttons);
+        for(var j=0; j<6; j++){
+            buttons[j].id="b"+j;
+            buttons[j].onclick = function(ev){
+                items[ev.target.id[1]].count++
+                // busket.push(items[ev.target.id[1]]);
+               
+               console.log(busket);
                 
             }
         }
-
+        console.log(busket);
     </script>
 </body>
 </html>
