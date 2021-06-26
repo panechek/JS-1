@@ -20,9 +20,11 @@
     
     <h1>Корзина покупок</h1>
     <div id="basket">
+        
+    </div>
+    <div id="summ">
 
     </div>
-
     <script>
         var images = document.querySelectorAll("img");
         
@@ -74,13 +76,16 @@
             shop.append(div); 
             
         }
-            
+        var sum =0;  
+        var summOut= document.getElementById("summ"); 
+        
         var buttons = document.querySelectorAll("button");
         console.log(buttons);
         for(var j=0; j<6; j++){
             buttons[j].id="b"+j;
             buttons[j].onclick = function(ev){
                 var good = items[ev.target.id[1]];
+                sum=0;
                 if(basket.indexOf(good)===-1){
                 
                     basket.push(good);
@@ -93,6 +98,7 @@
               
                var chek = document.getElementById("basket");
                var itemBasket = "";
+               chek.innerHTML="";
             for (var k in basket){
                 var div = document.createElement("div");
                 // div.classList.add("item","item"+key);
@@ -101,13 +107,16 @@
                 itemBasket+="<img src="+basket[k].img+" >";
                 itemBasket+="<p>Количество"+basket[k].count+"</p>";
                 div.innerHTML=itemBasket;
-            
             chek.append(div); 
-                
             }
+
+            for(var g in basket){
+                sum=sum+basket[g].price*basket[g].count;
+                summOut.innerHTML="";
+            summOut.append(document.createTextNode("Сумма: "+sum+" рублей")); 
+        }
         }
     }
-       
     </script>
 </body>
 </html>
