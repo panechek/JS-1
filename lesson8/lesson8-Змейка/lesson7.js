@@ -7,7 +7,7 @@ var direction = 'y+'; // Направление движения змейки
 var gameIsRunning = false; // Запущена ли игра
 var snake_timer; // Таймер змейки
 var food_timer; // Таймер для еды
-var score = 0; // Результат
+// var score = 0; // Результат
 
 function init() {
     prepareGameField(); // Генерация поля
@@ -183,10 +183,19 @@ function haveFood(unit) {
         check = true;
         createFood();
         var scoreDiv = document.getElementById('se');
-        score++;
-        scoreDiv.innerHTML="<p>Ваш счет "+score+"</p>";
+        // score++;
+        scoreDiv.innerHTML="<p>Ваш счет "+makeScore+"</p>";
     }
     return check;
+}
+
+function makeScore () {
+    var score=0;
+    function counter(){
+        score=score+1;
+        return score;
+    }
+    return counter;
 }
 
 /**
